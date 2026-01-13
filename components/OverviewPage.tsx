@@ -102,7 +102,7 @@ const OverviewPage: React.FC = () => {
             <div className="min-h-screen w-full flex flex-col items-center justify-center py-20 px-8">
               
               {/* Title */}
-              <h2 className="text-4xl md:text-5xl font-serif-display tracking-widest text-white mb-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-serif-display tracking-widest text-[#000000a3] mb-16 text-center">
                 WHAT WE DO
               </h2>
               
@@ -112,16 +112,16 @@ const OverviewPage: React.FC = () => {
                 {/* Left Side - 3 Items */}
                 <div className="flex flex-col gap-12 flex-1 items-end text-right pr-8">
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Community Events</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Learning sessions, discussions, and meetups.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Community Events</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Learning sessions, discussions, and meetups.</p>
                   </div>
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Hackathons</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Real-world problem solving using cloud technologies.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Hackathons</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Real-world problem solving using cloud technologies.</p>
                   </div>
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Cloud-Ready Learning</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Structured learning paths across major cloud platforms.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Cloud-Ready Learning</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Structured learning paths across major cloud platforms.</p>
                   </div>
                 </div>
                 
@@ -292,16 +292,16 @@ const OverviewPage: React.FC = () => {
                 {/* Right Side - 3 Items */}
                 <div className="flex flex-col gap-12 flex-1 items-start text-left pl-8">
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Mentorship & Guidance</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Support from experienced members and mentors.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Mentorship & Guidance</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Support from experienced members and mentors.</p>
                   </div>
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Giveaways & Opportunities</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Learning resources, credits, and community perks.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Giveaways & Opportunities</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Learning resources, credits, and community perks.</p>
                   </div>
                   <div className="max-w-xs">
-                    <h3 className="text-lg font-semibold text-white mb-2">Open Collaboration</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">Peer learning, shared resources, and projects.</p>
+                    <h3 className="text-lg font-semibold text-[#000000a3] mb-2">Open Collaboration</h3>
+                    <p className="text-sm text-[#000000a3]/70 leading-relaxed">Peer learning, shared resources, and projects.</p>
                   </div>
                 </div>
                 

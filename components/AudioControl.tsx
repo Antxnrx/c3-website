@@ -32,7 +32,7 @@ export const AudioControl: React.FC<AudioControlProps> = ({ url }) => {
   return (
     <button
       onClick={toggleAudio}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 hover:bg-white/20 transition-all duration-500 group"
+      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-[#000000a3]/10 backdrop-blur-md border border-[#000000a3]/20 text-[#000000a3]/80 hover:bg-[#000000a3]/20 transition-all duration-500 group"
       aria-label={isPlaying ? "Mute Ambient Sound" : "Play Ambient Sound"}
     >
       <div className="relative w-5 h-5 flex items-center justify-center">
@@ -49,7 +49,7 @@ export const AudioControl: React.FC<AudioControlProps> = ({ url }) => {
         )}
         {/* Subtle ripple effect when playing */}
         {isPlaying && (
-          <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-20 animate-ping"></span>
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[#000000a3] opacity-20 animate-ping"></span>
         )}
       </div>
     </button>
