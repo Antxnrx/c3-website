@@ -16,29 +16,31 @@ const TopNav: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-20 md:h-24 px-6 md:px-12 lg:px-24 flex items-center justify-between pointer-events-none">
 
-      {/* Title - Left aligned */}
-      <div className="z-50 pointer-events-auto">
+      {/* Left side: Overview (PC only) and Title */}
+      <div className="z-50 pointer-events-auto flex items-center gap-8">
+        <button
+          onClick={(e) => navigate(e, '/overview')}
+          className="hidden lg:block px-6 py-2 rounded-full border border-[#000000a3]/50 bg-transparent hover:bg-[#00000026] transition-all duration-300 cursor-pointer overflow-hidden"
+        >
+          <span className="font-sans-light text-[#000000a3]/80 text-[10px] tracking-widest uppercase group-hover:text-white transition-all duration-300">
+            Overview
+          </span>
+        </button>
+
         <a
           href="/"
           onClick={(e) => navigate(e, '/')}
           className="group cursor-pointer inline-block"
         >
-          <h1 className="font-sans-light text-[#000000a3]/80 text-sm md:text-base tracking-[0.2em] uppercase group-hover:text-[#000000a3] transition-colors whitespace-nowrap">
-            Cloud Computing Community
+          <h1 className="font-sans-light text-[#000000a3]/80 text-sm md:text-base tracking-[0.2em] uppercase group-hover:text-[#000000a3] transition-colors flex flex-col md:flex-row md:gap-2">
+            <span>Cloud</span>
+            <span>Computing Community</span>
           </h1>
         </a>
       </div>
 
       {/* Desktop Navigation - Hidden on md and below */}
       <nav className="hidden lg:flex items-center gap-8 pointer-events-auto">
-        <button
-          onClick={(e) => navigate(e, '/overview')}
-          className="group px-6 py-2 rounded-full border border-[#000000a3]/50 bg-transparent hover:bg-[#00000026] transition-all duration-300 cursor-pointer overflow-hidden mr-4"
-        >
-          <span className="font-sans-light text-[#000000a3]/80 text-[10px] tracking-widest uppercase group-hover:text-white transition-all duration-300">
-            Overview
-          </span>
-        </button>
         <a
           href="/"
           onClick={(e) => navigate(e, '/')}
@@ -111,13 +113,12 @@ const TopNav: React.FC = () => {
           Overview
         </a>
 
-        {/* Audio Control for Mobile/Tablet - Positioned bottom-right of overlay */}
-        <div className="absolute bottom-12 right-12 pointer-events-auto">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[10px] font-sans-light text-[#000000a3]/60 tracking-widest uppercase">Ambient Sound</span>
-            <AudioControl url={AUDIO_URL} mobileMode={true} />
-          </div>
-        </div>
+      </div>
+
+      {/* Audio Control for Mobile/Tablet - Positioned bottom-right of screen */}
+      <div className="fixed bottom-12 right-12 z-30 lg:hidden pointer-events-auto flex flex-col items-center gap-2">
+        <span className="text-[10px] font-sans-light text-[#000000a3]/60 tracking-widest uppercase">Ambient Sound</span>
+        <AudioControl url={AUDIO_URL} mobileMode={true} />
       </div>
     </header>
   );

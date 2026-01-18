@@ -111,15 +111,15 @@ const OverviewPage: React.FC = () => {
 
             {/* Left Side - 3 Items */}
             <div className="flex flex-col gap-8 lg:gap-12 flex-1 items-center lg:items-end text-center lg:text-right w-full lg:w-auto order-2 lg:order-1">
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Community Events</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light">Learning sessions, discussions, and meetups.</p>
               </div>
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Hackathons</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light">Real-world problem solving using cloud technologies.</p>
               </div>
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Cloud-Ready Learning</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light">Structured learning paths across major cloud platforms.</p>
               </div>
@@ -129,7 +129,7 @@ const OverviewPage: React.FC = () => {
             <div className="flex-shrink-0 flex items-center justify-center order-1 lg:order-2 my-8 lg:my-0" style={{ perspective: '1500px' }}>
               <div
                 ref={elementRef}
-                className="relative cursor-pointer transition-transform duration-500 scale-[0.8] md:scale-[1.1] lg:scale-[1.8]"
+                className="relative cursor-pointer transition-transform duration-500 scale-[0.5] md:scale-[1.1] lg:scale-[1.8]"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: `rotateX(20deg) rotateY(20deg) rotateZ(0deg)`
@@ -291,15 +291,15 @@ const OverviewPage: React.FC = () => {
 
             {/* Right Side - 3 Items */}
             <div className="flex flex-col gap-8 lg:gap-12 flex-1 items-center lg:items-start text-center lg:text-left w-full lg:w-auto order-3">
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Mentorship & Guidance</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light text-center lg:text-left">Support from experienced members and mentors.</p>
               </div>
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Giveaways & Opportunities</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light text-center lg:text-left">Learning resources, credits, and community perks.</p>
               </div>
-              <div className="max-w-xs transition-all duration-300 hover:scale-105">
+              <div className="max-w-sm transition-all duration-300 hover:scale-105 bg-white/40 backdrop-blur-md border border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:border-none p-6 rounded-3xl">
                 <h3 className="text-lg font-semibold text-[#000000a3] mb-2 tracking-wide">Open Collaboration</h3>
                 <p className="text-sm text-[#000000a3]/70 leading-relaxed font-sans-light text-center lg:text-left">Peer learning, shared resources, and projects.</p>
               </div>
