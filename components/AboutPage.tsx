@@ -32,8 +32,8 @@ const AboutFooter: React.FC = () => {
     <footer className="w-full py-20 relative z-20 text-slate-700/80 font-sans-light bg-transparent">
       {/* Floating Divider */}
       <div className="w-[80%] mx-auto h-px bg-gradient-to-r from-transparent via-slate-400/30 to-transparent mb-16" />
-      
-      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-16">
+
+      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
         {/* Quick Links */}
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">QUICK LINKS</h3>
@@ -73,11 +73,11 @@ const AboutFooter: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="text-center mt-20 text-xs opacity-30 font-sans-light tracking-widest text-slate-600">
         © 2024 CLOUD COMPUTING COMMUNITY. ALL RIGHTS RESERVED.
       </div>
-      
+
       {/* Developer Credit */}
       <div className="flex justify-center mt-8 pb-4">
         <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="bg-white px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-shadow">
@@ -91,114 +91,114 @@ const AboutFooter: React.FC = () => {
 const AboutPage: React.FC = () => {
   return (
     <div className="relative min-h-screen w-full text-slate-800 overflow-x-hidden">
-        
-        {/* Scrollable Content Wrapper */}
-        <div className="relative z-10 w-full">
-            
-            {/* HERO SECTION */}
-            <section className="h-screen w-full flex flex-col items-center justify-center relative">
-                <h1 className="font-serif-display text-6xl md:text-8xl lg:text-9xl text-slate-700 tracking-widest opacity-90 drop-shadow-lg text-center px-4">
-                    ABOUT
-                </h1>
-                <p className="mt-8 font-sans-light text-slate-600 text-lg md:text-xl tracking-wide text-center max-w-2xl px-6">
-                    Building the future of cloud computing, together.
+
+      {/* Scrollable Content Wrapper */}
+      <div className="relative z-10 w-full">
+
+        {/* HERO SECTION */}
+        <section className="h-screen w-full flex flex-col items-center justify-center relative">
+          <h1 className="font-serif-display text-6xl md:text-8xl lg:text-9xl text-slate-700 tracking-widest opacity-90 drop-shadow-lg text-center px-4">
+            ABOUT
+          </h1>
+          <p className="mt-8 font-sans-light text-slate-600 text-lg md:text-xl tracking-wide text-center max-w-2xl px-6">
+            Building the future of cloud computing, together.
+          </p>
+
+          {/* Animated Arrow */}
+          <div className="absolute bottom-12 animate-bounce flex flex-col items-center gap-2 opacity-60 text-slate-600">
+            <span className="text-xs font-sans-light tracking-[0.3em]">SCROLL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor" className="w-10 h-10">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </div>
+        </section>
+
+        {/* MISSION SECTION */}
+        <section className="min-h-screen py-32 px-6 md:px-12 bg-transparent flex items-center">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-12 tracking-wide">
+              Our Mission
+            </h2>
+            <p className="font-sans-light text-slate-600 text-lg md:text-xl leading-relaxed tracking-wide mb-8">
+              We believe in democratizing cloud knowledge. Our community brings together developers,
+              architects, and enthusiasts from around the world to share insights, best practices,
+              and the latest innovations in cloud computing.
+            </p>
+            <p className="font-sans-light text-slate-600 text-lg md:text-xl leading-relaxed tracking-wide">
+              From serverless architectures to multi-cloud strategies, we explore the technologies
+              shaping the future of digital infrastructure.
+            </p>
+          </div>
+        </section>
+
+        {/* TEAM SECTION */}
+        <section className="py-32 px-6 md:px-12 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
+              The Team
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {TEAM_MEMBERS.map((member) => (
+                <div
+                  key={member.id}
+                  className="group p-8 border border-slate-400/30 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-500 ease-out text-center"
+                >
+                  {/* Avatar Placeholder */}
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-300/50 to-blue-500/50 flex items-center justify-center">
+                    <span className="font-serif-display text-2xl text-slate-700">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  <h3 className="font-serif-display text-xl text-slate-700 mb-2 group-hover:text-blue-600 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="font-sans-light text-slate-500 text-xs tracking-[0.2em] uppercase mb-4">
+                    {member.role}
+                  </p>
+                  <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* VALUES SECTION */}
+        <section className="py-32 px-6 md:px-12 bg-transparent">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
+              Our Values
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              <div className="text-center flex flex-col items-center">
+                <div className="mb-6"><GlobeIcon /></div>
+                <h3 className="font-serif-display text-xl text-slate-700 mb-4">Open Knowledge</h3>
+                <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
+                  We believe knowledge should be accessible to everyone, everywhere.
                 </p>
-                
-                {/* Animated Arrow */}
-                <div className="absolute bottom-12 animate-bounce flex flex-col items-center gap-2 opacity-60 text-slate-600">
-                    <span className="text-xs font-sans-light tracking-[0.3em]">SCROLL</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor" className="w-10 h-10">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </div>
-            </section>
+              </div>
+              <div className="text-center flex flex-col items-center">
+                <div className="mb-6"><UsersIcon /></div>
+                <h3 className="font-serif-display text-xl text-slate-700 mb-4">Community First</h3>
+                <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
+                  Our strength lies in the diverse perspectives of our members.
+                </p>
+              </div>
+              <div className="text-center flex flex-col items-center">
+                <div className="mb-6"><RocketIcon /></div>
+                <h3 className="font-serif-display text-xl text-slate-700 mb-4">Innovation</h3>
+                <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
+                  We embrace change and continuously explore new possibilities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            {/* MISSION SECTION */}
-            <section className="min-h-screen py-32 px-6 md:px-12 bg-transparent flex items-center">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-12 tracking-wide">
-                        Our Mission
-                    </h2>
-                    <p className="font-sans-light text-slate-600 text-lg md:text-xl leading-relaxed tracking-wide mb-8">
-                        We believe in democratizing cloud knowledge. Our community brings together developers, 
-                        architects, and enthusiasts from around the world to share insights, best practices, 
-                        and the latest innovations in cloud computing.
-                    </p>
-                    <p className="font-sans-light text-slate-600 text-lg md:text-xl leading-relaxed tracking-wide">
-                        From serverless architectures to multi-cloud strategies, we explore the technologies 
-                        shaping the future of digital infrastructure.
-                    </p>
-                </div>
-            </section>
-
-            {/* TEAM SECTION */}
-            <section className="py-32 px-6 md:px-12 bg-transparent">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
-                        The Team
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {TEAM_MEMBERS.map((member) => (
-                            <div 
-                               key={member.id} 
-                               className="group p-8 border border-slate-400/30 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-500 ease-out text-center"
-                            >
-                                {/* Avatar Placeholder */}
-                                <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-300/50 to-blue-500/50 flex items-center justify-center">
-                                    <span className="font-serif-display text-2xl text-slate-700">
-                                        {member.name.split(' ').map(n => n[0]).join('')}
-                                    </span>
-                                </div>
-                                <h3 className="font-serif-display text-xl text-slate-700 mb-2 group-hover:text-blue-600 transition-colors">
-                                    {member.name}
-                                </h3>
-                                <p className="font-sans-light text-slate-500 text-xs tracking-[0.2em] uppercase mb-4">
-                                    {member.role}
-                                </p>
-                                <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
-                                    {member.bio}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* VALUES SECTION */}
-            <section className="py-32 px-6 md:px-12 bg-transparent">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
-                        Our Values
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="text-center flex flex-col items-center">
-                            <div className="mb-6"><GlobeIcon /></div>
-                            <h3 className="font-serif-display text-xl text-slate-700 mb-4">Open Knowledge</h3>
-                            <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
-                                We believe knowledge should be accessible to everyone, everywhere.
-                            </p>
-                        </div>
-                        <div className="text-center flex flex-col items-center">
-                            <div className="mb-6"><UsersIcon /></div>
-                            <h3 className="font-serif-display text-xl text-slate-700 mb-4">Community First</h3>
-                            <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
-                                Our strength lies in the diverse perspectives of our members.
-                            </p>
-                        </div>
-                        <div className="text-center flex flex-col items-center">
-                            <div className="mb-6"><RocketIcon /></div>
-                            <h3 className="font-serif-display text-xl text-slate-700 mb-4">Innovation</h3>
-                            <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
-                                We embrace change and continuously explore new possibilities.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* FOOTER */}
-            <AboutFooter />
-        </div>
+        {/* FOOTER */}
+        <AboutFooter />
+      </div>
     </div>
   );
 };
