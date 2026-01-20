@@ -1,10 +1,10 @@
 import React from 'react';
 
 const TEAM_MEMBERS = [
-  { id: 1, name: "Megh Vyas", role: "Cloud Architect", bio: "Passionate about building scalable cloud solutions and modern architectures." },
-  { id: 2, name: "Anton Raj", role: "Full Stack Developer", bio: "Creating seamless experiences across web and cloud platforms." },
-  { id: 3, name: "Priya Sharma", role: "DevOps Engineer", bio: "Kubernetes enthusiast and CI/CD automation specialist." },
-  { id: 4, name: "James Wilson", role: "Community Lead", bio: "Connecting cloud enthusiasts and fostering knowledge sharing." }
+  { id: 1, name: "Anton Raj", role: "Founder & Community Lead", bio: "Passionate about building scalable cloud solutions and modern architectures.", linkedin: "https://www.linkedin.com/in/anton-raj-singh/" },
+  { id: 2, name: "Megh Vyas", role: "Founder & Community Lead", bio: "Creating seamless experiences across web and cloud platforms.", linkedin: "https://www.linkedin.com/in/meghvyas3132/" },
+  { id: 3, name: "Mayuresh", role: "Co-Founder & Community Lead", bio: "Connecting cloud enthusiasts and fostering knowledge sharing.", linkedin: "https://www.linkedin.com/in/mayu-esh/" },
+  { id: 4, name: "Monali", role: "Co-Founder & Community Manager", bio: "Building and nurturing the cloud community ecosystem.", linkedin: "https://www.linkedin.com/in/monali-bundela-7048b12a7/" }
 ];
 
 // Icons as SVG components
@@ -58,8 +58,7 @@ const AboutFooter: React.FC = () => {
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
             <p>hello@cloudcommunity.com</p>
-            <p>+1 (555) 123-4567</p>
-            <p>San Francisco, CA</p>
+            <p>Bangalore, India</p>
           </div>
         </div>
 
@@ -67,9 +66,7 @@ const AboutFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">SOCIALS</h3>
           <div className="flex gap-6 text-sm tracking-wide">
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Twitter</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Instagram</a>
+            <a href="https://linkedin.com/company/c3aexiz/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -96,7 +93,7 @@ const AboutPage: React.FC = () => {
       <div className="relative z-10 w-full">
 
         {/* HERO SECTION */}
-        <section className="h-screen w-full flex flex-col items-center justify-center relative">
+        <section className="min-h-screen min-h-[100dvh] w-full flex flex-col items-center justify-center relative">
           <h1 className="font-serif-display text-6xl md:text-8xl lg:text-9xl text-slate-700 tracking-widest opacity-90 drop-shadow-lg text-center px-4">
             ABOUT
           </h1>
@@ -139,9 +136,12 @@ const AboutPage: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {TEAM_MEMBERS.map((member) => (
-                <div
+                <a
                   key={member.id}
-                  className="group p-8 border border-slate-400/30 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-500 ease-out text-center"
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-8 border border-slate-400/30 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-500 ease-out text-center block"
                 >
                   {/* Avatar Placeholder */}
                   <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-300/50 to-blue-500/50 flex items-center justify-center">
@@ -158,7 +158,7 @@ const AboutPage: React.FC = () => {
                   <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
                     {member.bio}
                   </p>
-                </div>
+                </a>
               ))}
             </div>
           </div>

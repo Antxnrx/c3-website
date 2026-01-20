@@ -31,8 +31,7 @@ const Footer: React.FC = () => {
           <h3 className="font-serif-display text-xl tracking-wider text-white border-b border-white/10 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
             <p>hello@cloudcommunity.com</p>
-            <p>+1 (555) 123-4567</p>
-            <p>San Francisco, CA</p>
+            <p>Bangalore, India</p>
           </div>
         </div>
 
@@ -40,9 +39,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-white border-b border-white/10 pb-2 w-fit">SOCIALS</h3>
           <div className="flex gap-6 text-sm tracking-wide">
-            <a href="#" className="hover:text-blue-300 transition-colors opacity-70 hover:opacity-100">Twitter</a>
-            <a href="#" className="hover:text-blue-300 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
-            <a href="#" className="hover:text-blue-300 transition-colors opacity-70 hover:opacity-100">Instagram</a>
+            <a href="https://linkedin.com/company/c3aexiz/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
           </div>
         </div>
       </div>

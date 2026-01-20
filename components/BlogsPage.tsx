@@ -79,7 +79,7 @@ const BlogsPage: React.FC = () => {
       <div className="relative z-10 w-full">
 
         {/* HERO SECTION */}
-        <section className="h-screen w-full flex flex-col items-center justify-center relative">
+        <section className="min-h-screen min-h-[100dvh] w-full flex flex-col items-center justify-center relative">
           <h1 className="font-serif-display text-6xl md:text-8xl lg:text-9xl text-slate-700 tracking-widest opacity-90 drop-shadow-lg text-center px-4">
             BLOGS
           </h1>
