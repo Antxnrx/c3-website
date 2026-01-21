@@ -14,72 +14,94 @@ const TopNav: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-20 md:h-24 px-6 md:px-12 lg:px-24 flex items-center justify-between pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 h-20 md:h-24 px-6 md:px-12 lg:px-24 pointer-events-none">
 
-      {/* Left side: Overview (PC only) and Title */}
-      <div className="z-50 pointer-events-auto flex items-center gap-8">
-        <button
-          onClick={(e) => navigate(e, '/overview')}
-          className="hidden lg:block px-6 py-2 rounded-full border border-[#000000a3]/50 bg-transparent hover:bg-[#00000026] transition-all duration-300 cursor-pointer overflow-hidden"
-        >
-          <span className="font-sans-light text-[#000000a3]/80 text-[10px] tracking-widest uppercase group-hover:text-white transition-all duration-300">
-            Overview
-          </span>
-        </button>
+      {/* Mobile/Tablet Layout - justify-between */}
+      <div className="lg:hidden h-full flex items-center justify-between">
+        {/* Left: Title */}
+        <div className="z-50 pointer-events-auto">
+          <a
+            href="/"
+            onClick={(e) => navigate(e, '/')}
+            className="group cursor-pointer inline-block"
+          >
+            <h1 className="font-sans-light text-[#000000a3]/80 text-sm md:text-base tracking-[0.2em] uppercase group-hover:text-[#000000a3] transition-colors flex flex-col md:flex-row md:gap-2">
+              <span>Cloud</span>
+              <span>Computing Community</span>
+            </h1>
+          </a>
+        </div>
 
-        <a
-          href="/"
-          onClick={(e) => navigate(e, '/')}
-          className="group cursor-pointer inline-block"
-        >
-          <h1 className="font-sans-light text-[#000000a3]/80 text-sm md:text-base tracking-[0.2em] uppercase group-hover:text-[#000000a3] transition-colors flex flex-col md:flex-row md:gap-2">
-            <span>Cloud</span>
-            <span>Computing Community</span>
-          </h1>
-        </a>
+        {/* Right: Hamburger Menu Button */}
+        <div className="z-50 pointer-events-auto">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-[#000000a3]/80 focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-45 translate-x-1' : ''}`}></span>
+              <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 origin-left ${isMenuOpen ? '-rotate-45 translate-x-1' : ''}`}></span>
+            </div>
+          </button>
+        </div>
       </div>
 
-      {/* Desktop Navigation - Hidden on md and below */}
-      <nav className="hidden lg:flex items-center gap-8 pointer-events-auto">
-        <a
-          href="/"
-          onClick={(e) => navigate(e, '/')}
-          className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
-        >
-          Home
-          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a
-          href="/blogs"
-          onClick={(e) => navigate(e, '/blogs')}
-          className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
-        >
-          Blogs
-          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a
-          href="/about"
-          onClick={(e) => navigate(e, '/about')}
-          className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
-        >
-          About
-          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </nav>
+      {/* Desktop Layout - Three columns with centered title */}
+      <div className="hidden lg:grid lg:grid-cols-3 items-center h-full">
+        {/* Left: Overview Button */}
+        <div className="z-50 pointer-events-auto flex justify-start">
+          <button
+            onClick={(e) => navigate(e, '/overview')}
+            className="px-6 py-2 rounded-full border border-[#000000a3]/50 bg-transparent hover:bg-[#00000026] transition-all duration-300 cursor-pointer overflow-hidden"
+          >
+            <span className="font-sans-light text-[#000000a3]/80 text-[10px] tracking-widest uppercase group-hover:text-white transition-all duration-300">
+              Overview
+            </span>
+          </button>
+        </div>
 
-      {/* Hamburger Menu Button - Visible on lg and below (tablet/mobile) */}
-      <div className="lg:hidden z-50 pointer-events-auto">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="p-2 text-[#000000a3]/80 focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          <div className="w-6 h-5 relative flex flex-col justify-between">
-            <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 origin-left ${isMenuOpen ? 'rotate-45 translate-x-1' : ''}`}></span>
-            <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`w-full h-0.5 bg-[#000000a3]/80 transition-all duration-300 origin-left ${isMenuOpen ? '-rotate-45 translate-x-1' : ''}`}></span>
-          </div>
-        </button>
+        {/* Center: Title */}
+        <div className="z-50 pointer-events-auto flex justify-center">
+          <a
+            href="/"
+            onClick={(e) => navigate(e, '/')}
+            className="group cursor-pointer inline-block"
+          >
+            <h1 className="font-sans-light text-[#000000a3]/80 text-base tracking-[0.2em] uppercase group-hover:text-[#000000a3] transition-colors whitespace-nowrap">
+              Cloud Computing Community
+            </h1>
+          </a>
+        </div>
+
+        {/* Right: Navigation Links */}
+        <nav className="pointer-events-auto flex items-center gap-8 justify-end">
+          <a
+            href="/"
+            onClick={(e) => navigate(e, '/')}
+            className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
+          >
+            Home
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a
+            href="/blogs"
+            onClick={(e) => navigate(e, '/blogs')}
+            className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
+          >
+            Blogs
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a
+            href="/about"
+            onClick={(e) => navigate(e, '/about')}
+            className="font-sans-light text-[#000000a3]/70 text-[10px] tracking-widest uppercase hover:text-[#000000a3] transition-colors duration-300 relative group"
+          >
+            About
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#000000a3] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </nav>
       </div>
 
       {/* Mobile/Tablet Menu Overlay */}

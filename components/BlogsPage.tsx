@@ -40,9 +40,9 @@ const BlogsFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
-            <p>hello@cloudcommunity.com</p>
+            <a href="mailto:info@aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
             <p>+1 (555) 123-4567</p>
-            <p>San Francisco, CA</p>
+            <p>Bangalore, IN</p>
           </div>
         </div>
 
@@ -50,21 +50,21 @@ const BlogsFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">SOCIALS</h3>
           <div className="flex gap-6 text-sm tracking-wide">
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Twitter</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Instagram</a>
+
+            <a href="https://www.linkedin.com/company/c3aexiz" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
+
           </div>
         </div>
       </div>
 
-      <div className="text-center mt-20 text-xs opacity-30 font-sans-light tracking-widest text-slate-600">
+      <div className="text-center mt-20 text-xs opacity-70 font-sans-light tracking-widest text-slate-600">
         © 2024 CLOUD COMPUTING COMMUNITY. ALL RIGHTS RESERVED.
       </div>
 
       {/* Developer Credit */}
       <div className="flex justify-center mt-8 pb-4">
-        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="bg-white px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <span className="text-black text-sm font-medium tracking-wide">Developed by Aexiz Solutions</span>
+        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="group text-slate-600 text-sm font-light tracking-wide">
+          Developed by <span className="text-slate-700 group-hover:text-blue-600 transition-colors font-medium">Aexiz</span> Solutions
         </a>
       </div>
     </footer>

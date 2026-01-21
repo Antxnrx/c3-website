@@ -2,9 +2,10 @@ import React from 'react';
 
 const TEAM_MEMBERS = [
   { id: 1, name: "Anton Raj", role: "Founder & Community Lead", bio: "Passionate about building scalable cloud solutions and modern architectures.", linkedin: "https://www.linkedin.com/in/anton-raj-singh/" },
-  { id: 2, name: "Megh Vyas", role: "Founder & Community Lead", bio: "Creating seamless experiences across web and cloud platforms.", linkedin: "https://www.linkedin.com/in/meghvyas3132/" },
+  { id: 2, name: "Vyas Megh", role: "Founder & Community Lead", bio: "Creating seamless experiences across web and cloud platforms.", linkedin: "https://www.linkedin.com/in/meghvyas3132/" },
   { id: 3, name: "Mayuresh", role: "Co-Founder & Community Lead", bio: "Connecting cloud enthusiasts and fostering knowledge sharing.", linkedin: "https://www.linkedin.com/in/mayu-esh/" },
-  { id: 4, name: "Monali", role: "Co-Founder & Community Manager", bio: "Building and nurturing the cloud community ecosystem.", linkedin: "https://www.linkedin.com/in/monali-bundela-7048b12a7/" }
+  { id: 4, name: "Monali", role: "Co-Founder & Community Manager", bio: "Building and nurturing the cloud community ecosystem.", linkedin: "https://www.linkedin.com/in/monali-bundela-7048b12a7/" },
+  { id: 5, name: "Vignesh", role: "Co-Founder & Community Lead", bio: "Empowering cloud builders by creating spaces to learn, collaborate, and grow together.", linkedin: "https://www.linkedin.com/in/vignesh-b-84545a27b/" }
 ];
 
 // Icons as SVG components
@@ -57,7 +58,7 @@ const AboutFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
-            <p>hello@cloudcommunity.com</p>
+            <a href="mailto:info@aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
             <p>Bangalore, India</p>
           </div>
         </div>
@@ -71,14 +72,14 @@ const AboutFooter: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-center mt-20 text-xs opacity-30 font-sans-light tracking-widest text-slate-600">
+      <div className="text-center mt-20 text-xs opacity-70 font-sans-light tracking-widest text-slate-600">
         © 2024 CLOUD COMPUTING COMMUNITY. ALL RIGHTS RESERVED.
       </div>
 
       {/* Developer Credit */}
       <div className="flex justify-center mt-8 pb-4">
-        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="bg-white px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <span className="text-black text-sm font-medium tracking-wide">Developed by Aexiz Solutions</span>
+        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="group text-slate-600 text-sm font-light tracking-wide">
+          Developed by <span className="text-slate-700 group-hover:text-blue-600 transition-colors font-medium">Aexiz</span> Solutions
         </a>
       </div>
     </footer>
@@ -134,30 +135,48 @@ const AboutPage: React.FC = () => {
             <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
               The Team
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Responsive grid: 1 col mobile, 2 cols tablet, 3 cols desktop for better 5-card layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
               {TEAM_MEMBERS.map((member) => (
                 <a
                   key={member.id}
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-8 border border-slate-400/30 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-500 ease-out text-center block"
+                  className="group relative p-8 md:p-10 border border-slate-300/40 bg-white/30 backdrop-blur-md rounded-xl hover:bg-white/60 hover:border-slate-400/60 hover:shadow-2xl hover:shadow-blue-200/30 hover:-translate-y-2 transition-all duration-500 ease-out text-center block"
                 >
-                  {/* Avatar Placeholder */}
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-300/50 to-blue-500/50 flex items-center justify-center">
-                    <span className="font-serif-display text-2xl text-slate-700">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/30 group-hover:to-blue-100/20 rounded-xl transition-all duration-500 pointer-events-none" />
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Avatar with enhanced gradient */}
+                    <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400/60 via-blue-500/50 to-purple-500/40 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
+                      <span className="font-serif-display text-3xl md:text-4xl text-white drop-shadow-md">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif-display text-xl md:text-2xl text-slate-700 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                      {member.name}
+                    </h3>
+
+                    <p className="font-sans-light text-slate-500 text-xs tracking-[0.2em] uppercase mb-5 group-hover:text-slate-600 transition-colors">
+                      {member.role}
+                    </p>
+
+                    <p className="font-sans-light text-slate-600 text-sm md:text-base leading-relaxed group-hover:text-slate-700 transition-colors">
+                      {member.bio}
+                    </p>
+
+                    {/* LinkedIn indicator */}
+                    <div className="mt-6 flex items-center justify-center gap-2 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                      </svg>
+                      <span className="text-xs font-sans-light tracking-wide">View Profile</span>
+                    </div>
                   </div>
-                  <h3 className="font-serif-display text-xl text-slate-700 mb-2 group-hover:text-blue-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="font-sans-light text-slate-500 text-xs tracking-[0.2em] uppercase mb-4">
-                    {member.role}
-                  </p>
-                  <p className="font-sans-light text-slate-600 text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
                 </a>
               ))}
             </div>

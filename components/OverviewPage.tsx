@@ -31,9 +31,9 @@ const OverviewFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
-            <p>hello@cloudcommunity.com</p>
+            <a href="mailto:info@aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
             <p>+1 (555) 123-4567</p>
-            <p>San Francisco, CA</p>
+            <p>Bangalore, IN</p>
           </div>
         </div>
 
@@ -41,21 +41,21 @@ const OverviewFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">SOCIALS</h3>
           <div className="flex gap-6 text-sm tracking-wide">
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Twitter</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
-            <a href="#" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">Instagram</a>
+
+            <a href="https://www.linkedin.com/company/c3aexiz" className="hover:text-blue-600 transition-colors opacity-70 hover:opacity-100">LinkedIn</a>
+
           </div>
         </div>
       </div>
 
-      <div className="text-center mt-20 text-xs opacity-30 font-sans-light tracking-widest text-slate-600">
+      <div className="text-center mt-20 text-xs opacity-70 font-sans-light tracking-widest text-slate-600">
         © 2024 CLOUD COMPUTING COMMUNITY. ALL RIGHTS RESERVED.
       </div>
 
       {/* Developer Credit */}
       <div className="flex justify-center mt-8 pb-4">
-        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="bg-white px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <span className="text-black text-sm font-medium tracking-wide">Developed by Aexiz Solutions</span>
+        <a href="https://aexiz.com" target="_blank" rel="noopener noreferrer" className="group text-slate-600 text-sm font-light tracking-wide">
+          Developed by <span className="text-slate-700 group-hover:text-blue-600 transition-colors font-medium">Aexiz</span> Solutions
         </a>
       </div>
     </footer>
@@ -129,7 +129,7 @@ const OverviewPage: React.FC = () => {
             <div className="flex-shrink-0 flex items-center justify-center order-1 lg:order-2 my-8 lg:my-0" style={{ perspective: '1500px' }}>
               <div
                 ref={elementRef}
-                className="relative cursor-pointer transition-transform duration-500 scale-[0.5] md:scale-[1.1] lg:scale-[1.8]"
+                className="relative cursor-pointer transition-transform duration-500 scale-[0.1] md:scale-[1.1] lg:scale-[1.8]"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: `rotateX(20deg) rotateY(20deg) rotateZ(0deg)`
@@ -259,30 +259,6 @@ const OverviewPage: React.FC = () => {
                       <line x1="-70" y1="-8" x2="70" y2="-8" stroke="url(#asteriskHighlight)" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
                       <line x1="-8" y1="-70" x2="-8" y2="70" stroke="url(#asteriskHighlight)" strokeWidth="3" strokeLinecap="round" opacity="0.9" transform="rotate(45)" />
                       <line x1="-8" y1="-70" x2="-8" y2="70" stroke="url(#asteriskHighlight)" strokeWidth="3" strokeLinecap="round" opacity="0.9" transform="rotate(-45)" />
-                    </g>
-                  </svg>
-                </div>
-
-                {/* Front specular highlights */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    transform: 'translateZ(25px) scale(0.98)',
-                    opacity: 0.95
-                  }}
-                >
-                  <svg width="400" height="400" viewBox="0 0 200 200">
-                    <g transform="translate(100,100)">
-                      {/* Specular dots at arm tips */}
-                      <ellipse cx="0" cy="-70" rx="5" ry="3" fill="rgba(255,255,255,0.95)" />
-                      <ellipse cx="0" cy="70" rx="5" ry="3" fill="rgba(255,255,255,0.7)" />
-                      <ellipse cx="-70" cy="0" rx="3" ry="5" fill="rgba(255,255,255,0.8)" />
-                      <ellipse cx="70" cy="0" rx="3" ry="5" fill="rgba(255,255,255,0.7)" />
-                      {/* Diagonal tips */}
-                      <ellipse cx="-50" cy="-50" rx="4" ry="3" fill="rgba(255,255,255,0.85)" transform="rotate(45)" />
-                      <ellipse cx="50" cy="-50" rx="4" ry="3" fill="rgba(255,255,255,0.7)" transform="rotate(-45)" />
-                      {/* Center highlight */}
-                      <ellipse cx="-5" cy="-5" rx="6" ry="4" fill="rgba(255,255,255,0.9)" />
                     </g>
                   </svg>
                 </div>
