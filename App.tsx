@@ -26,11 +26,11 @@ const App: React.FC = () => {
     const handleNavigation = () => {
       const newPath = window.location.pathname;
       if (newPath === currentPath) return;
-      
+
       setIsTransitioning(true);
       const isGoingToHome = newPath === '/';
       const wasOnHome = currentPath === '/';
-      
+
       // Fade out current content first
       if (contentRef.current) {
         gsap.to(contentRef.current, {
@@ -41,14 +41,14 @@ const App: React.FC = () => {
             // Update the displayed page
             setDisplayedPath(newPath);
             setCurrentPath(newPath);
-            
+
             // Start cloud/gradient animation AFTER old content fades out
             if (wasOnHome && !isGoingToHome) {
               setCloudsPosition('footer');
             } else if (!wasOnHome && isGoingToHome) {
               setCloudsPosition('normal');
             }
-            
+
             // Fade in new content together with gradient animation
             // Both happen at the same time over 5 seconds
             gsap.to(contentRef.current, {
@@ -66,7 +66,7 @@ const App: React.FC = () => {
 
     // Handle back/forward buttons
     window.addEventListener('popstate', handleNavigation);
-    
+
     // Handle internal navigation (custom event)
     window.addEventListener('pushstate', handleNavigation);
 
@@ -113,9 +113,9 @@ const App: React.FC = () => {
       <AudioControl url={AUDIO_URL} />
 
       {/* Route Content with transition */}
-      <div 
-        ref={contentRef} 
-        className={isTransitioning ? 'pointer-events-none' : ''}
+      <div
+        ref={contentRef}
+        className={`overflow-x-hidden ${isTransitioning ? 'pointer-events-none' : ''}`}
       >
         {renderPage()}
       </div>

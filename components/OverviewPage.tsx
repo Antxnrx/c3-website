@@ -32,7 +32,7 @@ const OverviewFooter: React.FC = () => {
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
             <a href="mailto:info@aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
-            <p>+1 (555) 123-4567</p>
+            {/* <p>+1 (555) 123-4567</p> */}
             <p>Bangalore, IN</p>
           </div>
         </div>
@@ -129,7 +129,7 @@ const OverviewPage: React.FC = () => {
             <div className="flex-shrink-0 flex items-center justify-center order-1 lg:order-2 my-8 lg:my-0" style={{ perspective: '1500px' }}>
               <div
                 ref={elementRef}
-                className="relative cursor-pointer transition-transform duration-500 scale-[0.1] md:scale-[1.1] lg:scale-[1.8]"
+                className="relative cursor-pointer transition-transform duration-500 scale-[0.06] md:scale-[1.1] lg:scale-[1.8]"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: `rotateX(20deg) rotateY(20deg) rotateZ(0deg)`

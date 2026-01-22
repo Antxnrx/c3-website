@@ -40,11 +40,11 @@ const BlogsFooter: React.FC = () => {
         <div className="flex flex-col gap-6">
           <h3 className="font-serif-display text-xl tracking-wider text-slate-700 border-b border-slate-400/20 pb-2 w-fit">CONTACT</h3>
           <div className="flex flex-col gap-3 text-sm tracking-wide opacity-70">
-            <a href="mailto:info@aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
-            <p>+1 (555) 123-4567</p>
+            <a href="mailto:info  @aexiz.com" className="hover:text-blue-600 transition-colors">info@aexiz.com</a>
+            {/* <p>+1 (555) 123-4567</p> */}
             <p>Bangalore, IN</p>
           </div>
-        </div>
+        </div>Z
 
         {/* Socials */}
         <div className="flex flex-col gap-6">
