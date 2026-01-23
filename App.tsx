@@ -70,6 +70,13 @@ const App: React.FC = () => {
     // Handle internal navigation (custom event)
     window.addEventListener('pushstate', handleNavigation);
 
+    // Handle direct URL navigation on page load
+    if (window.location.pathname !== currentPath && window.location.pathname !== '/') {
+      setDisplayedPath(window.location.pathname);
+      setCurrentPath(window.location.pathname);
+      setCloudsPosition('footer');
+    }
+
     return () => {
       window.removeEventListener('popstate', handleNavigation);
       window.removeEventListener('pushstate', handleNavigation);
