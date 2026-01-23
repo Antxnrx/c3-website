@@ -146,8 +146,8 @@ const AboutPage: React.FC = () => {
             <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
               The Team
             </h2>
-            {/* All team members in one line */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
+            {/* 3 tiles in first row, 2 in second row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
               {TEAM_MEMBERS.map((member) => (
                 <a
                   key={member.id}
@@ -203,33 +203,33 @@ const AboutPage: React.FC = () => {
             <p className="text-center font-sans-light text-slate-600 text-lg mb-12 max-w-3xl mx-auto">
               Passionate ambassadors from leading technology programs, guiding the next generation of cloud innovators.
             </p>
-            {/* Grid of 8 student mentor tiles */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4 max-w-7xl mx-auto">
+            {/* Grid of 8 student mentor tiles - 4,4 layout */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
               {STUDENT_MENTORS.map((mentor) => (
                 <a
                   key={mentor.id}
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-3 md:p-4 border border-slate-300/30 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/50 hover:border-slate-400/50 hover:shadow-xl hover:shadow-blue-200/20 hover:-translate-y-1 transition-all duration-400 ease-out text-center block"
+                  className="group relative p-4 md:p-6 border border-slate-300/30 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/50 hover:border-slate-400/50 hover:shadow-xl hover:shadow-blue-200/20 hover:-translate-y-1 transition-all duration-400 ease-out text-center block"
                 >
                   {/* Subtle gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/40 group-hover:to-blue-100/30 rounded-lg transition-all duration-400 pointer-events-none" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col items-center h-full">
-                    {/* Avatar - smaller */}
-                    <div className="w-14 h-14 md:w-16 md:h-16 mb-2 rounded-full bg-gradient-to-br from-cyan-400/70 via-blue-500/60 to-purple-600/50 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-400">
-                      <span className="font-serif-display text-sm md:text-base text-white drop-shadow-md">
+                    {/* Avatar - slightly larger */}
+                    <div className="w-16 h-16 md:w-20 md:h-20 mb-3 rounded-full bg-gradient-to-br from-cyan-400/70 via-blue-500/60 to-purple-600/50 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-400">
+                      <span className="font-serif-display text-base md:text-lg text-white drop-shadow-md">
                         {mentor.photo}
                       </span>
                     </div>
 
-                    <h3 className="font-serif-display text-xs md:text-sm text-slate-700 mb-1 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                    <h3 className="font-serif-display text-sm md:text-base text-slate-700 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
                       {mentor.name}
                     </h3>
 
-                    <p className="font-sans-light text-slate-500 text-[10px] md:text-xs tracking-wider uppercase mb-2 group-hover:text-slate-600 transition-colors line-clamp-2">
+                    <p className="font-sans-light text-slate-500 text-[11px] md:text-xs tracking-wider uppercase mb-3 group-hover:text-slate-600 transition-colors line-clamp-2">
                       {mentor.program}
                     </p>
 
