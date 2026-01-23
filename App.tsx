@@ -6,6 +6,7 @@ import AboutPage from './components/AboutPage';
 import OverviewPage from './components/OverviewPage';
 import PrivacyPage from './components/PrivacyPage';
 import TermsPage from './components/TermsPage';
+import NotFoundPage from './components/NotFoundPage';
 import { Blog1, Blog2, Blog3, Blog4, Blog5, Blog6 } from './components/BlogPost';
 import Scene from './components/Scene';
 import TopNav from './components/TopNav';
@@ -107,8 +108,10 @@ const App: React.FC = () => {
         return <PrivacyPage />;
       case '/terms':
         return <TermsPage />;
-      default:
+      case '/':
         return <HomePage />;
+      default:
+        return <NotFoundPage />;
     }
   };
 

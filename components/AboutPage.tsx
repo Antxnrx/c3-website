@@ -8,6 +8,17 @@ const TEAM_MEMBERS = [
   { id: 5, name: "Vignesh", role: "Co-Founder & Community Lead", bio: "Empowering cloud builders by creating spaces to learn, collaborate, and grow together.", linkedin: "https://www.linkedin.com/in/vignesh-b-84545a27b/" }
 ];
 
+const STUDENT_MENTORS = [
+  { id: 1, name: "Priya Sharma", program: "GitHub Campus Ambassador", photo: "PS" },
+  { id: 2, name: "Arjun Kumar", program: "Microsoft Learn Student Ambassador", photo: "AK" },
+  { id: 3, name: "Neha Patel", program: "Google Cloud Facilitator", photo: "NP" },
+  { id: 4, name: "Rohan Singh", program: "AWS Community Builder", photo: "RS" },
+  { id: 5, name: "Isha Gupta", program: "GitHub Campus Ambassador", photo: "IG" },
+  { id: 6, name: "Vikram Reddy", program: "Azure Student Ambassador", photo: "VR" },
+  { id: 7, name: "Aanya Desai", program: "Google Developer Expert", photo: "AD" },
+  { id: 8, name: "Kunal Verma", program: "AWS Captain", photo: "KV" }
+];
+
 // Icons as SVG components
 const GlobeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-12 h-12 text-slate-600">
@@ -135,46 +146,98 @@ const AboutPage: React.FC = () => {
             <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
               The Team
             </h2>
-            {/* Responsive grid: 1 col mobile, 2 cols tablet, 3 cols desktop for better 5-card layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
+            {/* All team members in one line */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 max-w-7xl mx-auto">
               {TEAM_MEMBERS.map((member) => (
                 <a
                   key={member.id}
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-8 md:p-10 border border-slate-300/40 bg-white/30 backdrop-blur-md rounded-xl hover:bg-white/60 hover:border-slate-400/60 hover:shadow-2xl hover:shadow-blue-200/30 hover:-translate-y-2 transition-all duration-500 ease-out text-center block"
+                  className="group relative p-5 md:p-6 border border-slate-300/40 bg-white/30 backdrop-blur-md rounded-lg hover:bg-white/60 hover:border-slate-400/60 hover:shadow-2xl hover:shadow-blue-200/30 hover:-translate-y-2 transition-all duration-500 ease-out text-center block"
                 >
                   {/* Subtle gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/30 group-hover:to-blue-100/20 rounded-xl transition-all duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/30 group-hover:to-blue-100/20 rounded-lg transition-all duration-500 pointer-events-none" />
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Avatar with enhanced gradient */}
-                    <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400/60 via-blue-500/50 to-purple-500/40 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
-                      <span className="font-serif-display text-3xl md:text-4xl text-white drop-shadow-md">
+                    {/* Avatar - smaller for more tiles per line */}
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400/60 via-blue-500/50 to-purple-500/40 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
+                      <span className="font-serif-display text-2xl md:text-3xl text-white drop-shadow-md">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
 
-                    <h3 className="font-serif-display text-xl md:text-2xl text-slate-700 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="font-serif-display text-lg md:text-xl text-slate-700 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
                       {member.name}
                     </h3>
 
-                    <p className="font-sans-light text-slate-500 text-xs tracking-[0.2em] uppercase mb-5 group-hover:text-slate-600 transition-colors">
+                    <p className="font-sans-light text-slate-500 text-xs tracking-[0.15em] uppercase mb-3 group-hover:text-slate-600 transition-colors line-clamp-2">
                       {member.role}
                     </p>
 
-                    <p className="font-sans-light text-slate-600 text-sm md:text-base leading-relaxed group-hover:text-slate-700 transition-colors">
+                    <p className="font-sans-light text-slate-600 text-xs md:text-sm leading-relaxed group-hover:text-slate-700 transition-colors mb-3 line-clamp-2">
                       {member.bio}
                     </p>
 
-                    {/* LinkedIn indicator */}
-                    <div className="mt-6 flex items-center justify-center gap-2 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* LinkedIn indicator - always visible */}
+                    <div className="flex items-center justify-center gap-2 text-blue-500 group-hover:text-blue-600 transition-colors duration-300">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                       </svg>
-                      <span className="text-xs font-sans-light tracking-wide">View Profile</span>
+                      <span className="text-xs font-sans-light tracking-wide">Profile</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* STUDENT MENTORS SECTION */}
+        <section className="py-32 px-6 md:px-12 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="font-serif-display text-4xl md:text-5xl text-slate-700 mb-16 tracking-wide text-center">
+              Student Mentors
+            </h2>
+            <p className="text-center font-sans-light text-slate-600 text-lg mb-12 max-w-3xl mx-auto">
+              Passionate ambassadors from leading technology programs, guiding the next generation of cloud innovators.
+            </p>
+            {/* Grid of 8 student mentor tiles */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4 max-w-7xl mx-auto">
+              {STUDENT_MENTORS.map((mentor) => (
+                <a
+                  key={mentor.id}
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative p-3 md:p-4 border border-slate-300/30 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/50 hover:border-slate-400/50 hover:shadow-xl hover:shadow-blue-200/20 hover:-translate-y-1 transition-all duration-400 ease-out text-center block"
+                >
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/40 group-hover:to-blue-100/30 rounded-lg transition-all duration-400 pointer-events-none" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col items-center h-full">
+                    {/* Avatar - smaller */}
+                    <div className="w-14 h-14 md:w-16 md:h-16 mb-2 rounded-full bg-gradient-to-br from-cyan-400/70 via-blue-500/60 to-purple-600/50 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-400">
+                      <span className="font-serif-display text-sm md:text-base text-white drop-shadow-md">
+                        {mentor.photo}
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif-display text-xs md:text-sm text-slate-700 mb-1 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                      {mentor.name}
+                    </h3>
+
+                    <p className="font-sans-light text-slate-500 text-[10px] md:text-xs tracking-wider uppercase mb-2 group-hover:text-slate-600 transition-colors line-clamp-2">
+                      {mentor.program}
+                    </p>
+
+                    {/* LinkedIn icon - appears on hover */}
+                    <div className="mt-auto pt-2 flex items-center justify-center gap-1 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                      </svg>
                     </div>
                   </div>
                 </a>
