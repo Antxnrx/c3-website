@@ -1,5 +1,50 @@
 import React from 'react';
 
+// Attempt to import avatars via Vite's import.meta.globEager when available.
+// If not available (e.g. certain environments), fall back to predictable
+// public paths under `/avatars/<name>.(png|jpg|jpeg|webp|svg)`.
+const AVATAR_EXTS = ['png', 'jpg', 'jpeg', 'webp', 'svg'];
+let AVATARS: { nameKey: string; url: string }[] = [];
+try {
+  if (typeof (import.meta as any).globEager === 'function') {
+    const avatarModules: Record<string, any> = (import.meta as any).globEager('/avatars/*.{png,jpg,jpeg,webp,svg}');
+    AVATARS = Object.keys(avatarModules).map((p) => {
+      const parts = p.split('/');
+      const file = parts[parts.length - 1];
+      const name = file.replace(/\.[^.]+$/, '');
+      const nameKey = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const url = avatarModules[p].default || avatarModules[p];
+      return { nameKey, url };
+    });
+  }
+} catch (err) {
+  // ignore and fallback below
+}
+
+const findAvatarFor = (memberName: string): string[] => {
+  const normalized = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const key = normalized(memberName);
+
+  // If we preloaded assets via globEager, prefer exact match(s)
+  const found = AVATARS.find(a => a.nameKey === key);
+  if (found) return [found.url];
+
+  // Try sensible filename variants: full-name, first-name, last-name
+  const parts = memberName.trim().split(/\s+/).map(p => p.toLowerCase());
+  const variants = [key];
+  if (parts.length >= 1) variants.push(normalized(parts[0]));
+  if (parts.length >= 2) variants.push(normalized(parts[parts.length - 1]));
+
+  // Build candidate URLs for each variant and extension
+  const candidates: string[] = [];
+  for (const v of variants) {
+    for (const ext of AVATAR_EXTS) {
+      candidates.push(`/avatars/${v}.${ext}`);
+    }
+  }
+  return candidates;
+};
+
 const TEAM_MEMBERS = [
   { id: 1, name: "Anton Raj", role: "Founder & Community Lead", bio: "Passionate about building scalable cloud solutions and modern architectures.", linkedin: "https://www.linkedin.com/in/anton-raj-singh/" },
   { id: 2, name: "Vyas Megh", role: "Founder & Community Lead", bio: "Creating seamless experiences across web and cloud platforms.", linkedin: "https://www.linkedin.com/in/meghvyas3132/" },
@@ -9,6 +54,8 @@ const TEAM_MEMBERS = [
 ];
 
 const STUDENT_MENTORS = [
+  { id: 9, name: "Peeyush Rampal", program: "GitHub Campus Ambassador | Beta MLSA", photo: "PR", linkedin: "https://www.linkedin.com/in/peeyush-rampal-59161827a/" },
+  { id: 10, name: "Shreya Sherikar", program: "AWS Cloud Captain", photo: "SS", linkedin: "https://www.linkedin.com/in/shreya-sherikar/" },
   { id: 1, name: "Priya Sharma", program: "GitHub Campus Ambassador", photo: "PS" },
   { id: 2, name: "Arjun Kumar", program: "Microsoft Learn Student Ambassador", photo: "AK" },
   { id: 3, name: "Neha Patel", program: "Google Cloud Facilitator", photo: "NP" },
@@ -161,11 +208,37 @@ const AboutPage: React.FC = () => {
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Avatar - smaller for more tiles per line */}
-                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400/60 via-blue-500/50 to-purple-500/40 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
-                      <span className="font-serif-display text-2xl md:text-3xl text-white drop-shadow-md">
+                    {/* Avatar - render image from /avatars if available, cropped to center */}
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full overflow-hidden bg-slate-100 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500 relative">
+                      {/* Initials fallback (always present) */}
+                      <span className="font-serif-display text-2xl md:text-3xl text-white drop-shadow-md bg-gradient-to-br from-blue-400/60 via-blue-500/50 to-purple-500/40 w-full h-full flex items-center justify-center absolute inset-0">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
+
+                      {/* Image - if available it will sit above initials; onError hides it so initials show through */}
+                      {(() => {
+                        const candidates = findAvatarFor(member.name);
+                        if (!candidates || candidates.length === 0) return null;
+                        return (
+                          <img
+                            src={candidates[0]}
+                            alt={member.name}
+                            data-attempt="0"
+                            className="w-full h-full object-cover object-center absolute inset-0"
+                            onError={(e) => {
+                              const img = e.currentTarget as HTMLImageElement;
+                              const attempt = parseInt(img.dataset.attempt || '0', 10);
+                              const next = attempt + 1;
+                              if (next < candidates.length) {
+                                img.dataset.attempt = String(next);
+                                img.src = candidates[next];
+                              } else {
+                                img.style.display = 'none';
+                              }
+                            }}
+                          />
+                        );
+                      })()}
                     </div>
 
                     <h3 className="font-serif-display text-lg md:text-xl text-slate-700 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
@@ -208,7 +281,7 @@ const AboutPage: React.FC = () => {
               {STUDENT_MENTORS.map((mentor) => (
                 <a
                   key={mentor.id}
-                  href="https://linkedin.com"
+                  href={mentor.linkedin || 'https://linkedin.com'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative p-4 md:p-6 border border-slate-300/30 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/50 hover:border-slate-400/50 hover:shadow-xl hover:shadow-blue-200/20 hover:-translate-y-1 transition-all duration-400 ease-out text-center block"
